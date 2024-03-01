@@ -3,12 +3,14 @@ package com.yupi.acm;
 import java.util.Scanner;
 
 /**
- * ACM 输入模板（多数之和）
- */
+* ACM 输入模板（多数之和）
+* @author 徐
+*/
 public class MainTemplate {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
+        // 循环也需要动态替换
         while (scanner.hasNext()) {
             // 读取输入元素个数
             int n = scanner.nextInt();
@@ -26,8 +28,7 @@ public class MainTemplate {
                 sum += num;
             }
 
-
-            System.out.println("Sum: " + sum);
+            System.out.println("本次计算结果为：: " + sum);
         }
 
         scanner.close();
