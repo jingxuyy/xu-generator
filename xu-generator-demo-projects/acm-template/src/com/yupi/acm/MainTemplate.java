@@ -26,7 +26,6 @@ public class MainTemplate {
                 sum += num;
             }
 
-
             System.out.println("Sum: " + sum);
         }
 
