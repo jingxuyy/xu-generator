@@ -1,9 +1,13 @@
 package com.xu;
 
+import com.xu.cli.CommandExecutor;
+
 public class Main {
     public static void main(String[] args) {
-        for (int i = 0; i < 5; i++) {
-            System.out.println(i);
-        }
+        args = new String[]{"generate", "-l", "-a", "-o"};
+//        args = new String[]{"config"};
+//        args = new String[]{"list"};
+        CommandExecutor commandExecutor = new CommandExecutor();
+        commandExecutor.doExecute(args);
     }
 }

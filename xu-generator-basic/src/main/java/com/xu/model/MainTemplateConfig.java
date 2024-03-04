@@ -16,12 +16,12 @@ public class MainTemplateConfig {
     /**
      * 作者 （字符串填充值）
      */
-    private String author="xu";
+    private String author="author";
 
     /**
      * 输出信息
      */
-    private String outputText="output";
+    private String outputText="outputText";
 
     /**
      * 是否循环（开关）
