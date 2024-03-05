@@ -50,6 +50,8 @@ cmake-build-*/
 
 # IntelliJ
 out/
+xu-generator-maker/generated
+acm-template/
 
 # mpeltonen/sbt-idea plugin
 .idea_modules/

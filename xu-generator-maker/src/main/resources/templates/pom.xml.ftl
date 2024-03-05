@@ -4,9 +4,9 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.xu</groupId>
-    <artifactId>xu-generator-basic</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <groupId>${basePackage}</groupId>
+    <artifactId>${name}</artifactId>
+    <version>${version}</version>
 
     <dependencies>
 
@@ -74,7 +74,7 @@
                     </descriptorRefs>
                     <archive>
                         <manifest>
-                            <mainClass>com.xu.maker.Main</mainClass>
+                            <mainClass>${basePackage}.Main</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
