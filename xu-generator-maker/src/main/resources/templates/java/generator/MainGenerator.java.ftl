@@ -17,7 +17,7 @@ public class MainGenerator {
         String inputRootPath = "${fileConfig.inputRootPath}";
         // 输出路径
         String outputRootPath = System.getProperty("user.dir")+File.separator+"${fileConfig.outputRootPath}";
-        System.out.println(outputRootPath);
+        System.out.println("outputPath: "+outputRootPath);
 
         String inputPath;
         String outputPath;

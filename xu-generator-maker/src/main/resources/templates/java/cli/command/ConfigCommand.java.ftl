@@ -16,6 +16,8 @@ public class ConfigCommand implements Runnable{
         for (Field field : fields) {
             System.out.println("字段类型："+field.getType());
             System.out.println("字段名称："+field.getName());
+            System.out.println("=========================");
+            System.out.println();
         }
     }
 
