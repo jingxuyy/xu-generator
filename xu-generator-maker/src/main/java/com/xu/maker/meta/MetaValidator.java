@@ -11,6 +11,7 @@ import com.xu.maker.meta.enums.ModelTypeEnum;
 import java.io.File;
 import java.nio.file.Paths;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class MetaValidator {
 
@@ -38,6 +39,15 @@ public class MetaValidator {
         }
 
         for (Meta.ModelConfig.ModelInfo modelInfo : modelInfoList) {
+            if(StrUtil.isNotEmpty(modelInfo.getGroupKey())){
+                List<Meta.ModelConfig.ModelInfo> subModelInfoList = modelInfo.getModels();
+                String allArgsStr = subModelInfoList.stream()
+                        .map(subModelInfo -> String.format("\"--%s\"", subModelInfo.getFieldName()))
+                        .collect(Collectors.joining(", "));
+                modelInfo.setAllArgsStr(allArgsStr);
+                continue;
+            }
+
             String fieldName = modelInfo.getFieldName();
             if(StrUtil.isBlank(fieldName)){
                 throw new MetaException("未填写 fieldName");
@@ -75,6 +85,9 @@ public class MetaValidator {
             throw new MetaException("未填写files值");
         }
         for (Meta.FileConfig.FileInfo fileInfo : files) {
+            if(FileTypeEnum.GROUP.getValue().equals(fileInfo.getType())){
+                continue;
+            }
             // inputPath 必填
             String inputPath = fileInfo.getInputPath();
             if(StrUtil.isBlank(inputPath)){
