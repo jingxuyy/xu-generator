@@ -55,6 +55,7 @@ acm-template/
 
 # mpeltonen/sbt-idea plugin
 .idea_modules/
+.temp/
 
 # JIRA plugin
 atlassian-ide-plugin.xml

@@ -42,13 +42,13 @@ public class MetaValidator {
             if(StrUtil.isNotEmpty(modelInfo.getGroupKey())){
                 List<Meta.ModelConfig.ModelInfo> subModelInfoList = modelInfo.getModels();
                 String allArgsStr = subModelInfoList.stream()
-                        .map(subModelInfo -> String.format("\"--%s\"", subModelInfo.getFieldName()))
+                        .map(subModelInfo -> String.format("\"--%s\"", subModelInfo.getFileName()))
                         .collect(Collectors.joining(", "));
                 modelInfo.setAllArgsStr(allArgsStr);
                 continue;
             }
 
-            String fieldName = modelInfo.getFieldName();
+            String fieldName = modelInfo.getFileName();
             if(StrUtil.isBlank(fieldName)){
                 throw new MetaException("未填写 fieldName");
             }

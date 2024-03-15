@@ -2,7 +2,6 @@ package com.xu.maker.generator.file;
 
 import cn.hutool.core.io.FileUtil;
 
-import java.io.File;
 
 /**
  * @author xu
