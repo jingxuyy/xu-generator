@@ -42,13 +42,13 @@ public class MetaValidator {
             if(StrUtil.isNotEmpty(modelInfo.getGroupKey())){
                 List<Meta.ModelConfig.ModelInfo> subModelInfoList = modelInfo.getModels();
                 String allArgsStr = subModelInfoList.stream()
-                        .map(subModelInfo -> String.format("\"--%s\"", subModelInfo.getFileName()))
+                        .map(subModelInfo -> String.format("\"--%s\"", subModelInfo.getFieldName()))
                         .collect(Collectors.joining(", "));
                 modelInfo.setAllArgsStr(allArgsStr);
                 continue;
             }
 
-            String fieldName = modelInfo.getFileName();
+            String fieldName = modelInfo.getFieldName();
             if(StrUtil.isBlank(fieldName)){
                 throw new MetaException("未填写 fieldName");
             }
@@ -72,6 +72,7 @@ public class MetaValidator {
 
         // 源模板文件复制的目的地址，无则使用 .source + sourceRootPath路径的最后一个文件夹拼接
         String inputRootPath = StrUtil.emptyToDefault(fileConfig.getInputRootPath(), ".source" + File.separator + FileUtil.getLastPathEle(Paths.get(sourceRootPath)).getFileName().toString());
+        inputRootPath = inputRootPath.replaceAll("\\\\", "/");
         // 代码生成器输出路径，无则为generated
         String outputRootPath = StrUtil.emptyToDefault(fileConfig.getOutputRootPath(), "generated");
         String fileConfigType = StrUtil.emptyToDefault(fileConfig.getType(), FileTypeEnum.DIR.getValue());

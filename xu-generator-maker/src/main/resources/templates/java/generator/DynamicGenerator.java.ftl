@@ -5,8 +5,12 @@ import freemarker.template.Configuration;
 import freemarker.template.Template;
 import freemarker.template.TemplateException;
 
+import java.io.*;
 import java.io.File;
 import java.io.FileWriter;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 
 import java.io.Writer;
 
@@ -49,7 +53,8 @@ public class DynamicGenerator {
             FileUtil.touch(outputPath);
         }
         // 输出文件位置和文件名
-        Writer writer = new FileWriter(outputPath);
+        Writer writer = new BufferedWriter( new OutputStreamWriter(Files.newOutputStream(Paths.get(outputPath)), StandardCharsets.UTF_8));
+        //Writer writer = new FileWriter(outputPath);
 
         // 生成文件
         template.process(model, writer);

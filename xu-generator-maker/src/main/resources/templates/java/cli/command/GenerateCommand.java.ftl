@@ -26,8 +26,8 @@ ${indent}private ${modelInfo.type} ${modelInfo.fieldName} <#if modelInfo.default
 
 <#macro generateCommand indent modelInfo>
 ${indent}System.out.println("输入${modelInfo.groupName}配置");
-${indent}CommandLine commandLine = new CommandLine(${modelInfo.type}Command.class);
-${indent}commandLine.execute(${modelInfo.allArgsStr});
+${indent}CommandLine ${modelInfo.groupKey}CommandLine = new CommandLine(${modelInfo.type}Command.class);
+${indent}${modelInfo.groupKey}CommandLine.execute(${modelInfo.allArgsStr});
 </#macro>
 
 
@@ -68,22 +68,22 @@ public class GenerateCommand implements Callable<Integer> {
     <#list modelConfig.models as modelInfo>
     <#if modelInfo.groupKey??>
     <#if modelInfo.condition??>
-        if(${modelInfo.condition}){
-            <@generateCommand indent="          " modelInfo=modelInfo/>
-        }
+      if(${modelInfo.condition}){
+        <@generateCommand indent="          " modelInfo=modelInfo/>
+      }
     <#else>
-        <@generateCommand indent="      " modelInfo=modelInfo/>
+    <@generateCommand indent="      " modelInfo=modelInfo/>
     </#if>
     </#if>
     </#list>
-        DataModel dataModel = new DataModel();
-    <#list modelConfig.models as modelInfo>
-        <#if modelInfo.groupKey??>
-        dataModel.${modelInfo.groupKey} = ${modelInfo.groupKey};
-        </#if>
-    </#list>
-        BeanUtil.copyProperties(this, dataModel);
-        MainGenerator.doGenerate(dataModel);
-        return 0;
+      DataModel dataModel = new DataModel();
+<#list modelConfig.models as modelInfo>
+    <#if modelInfo.groupKey??>
+      dataModel.${modelInfo.groupKey} = ${modelInfo.groupKey};
+    </#if>
+</#list>
+      BeanUtil.copyProperties(this, dataModel);
+      MainGenerator.doGenerate(dataModel);
+      return 0;
     }
 }

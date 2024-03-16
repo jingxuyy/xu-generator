@@ -48,7 +48,7 @@ public class Meta {
         @NoArgsConstructor
         @Data
         public static class ModelInfo {
-            private String fileName;
+            private String fieldName;
             private String type;
             private String description;
             private Object defaultValue;

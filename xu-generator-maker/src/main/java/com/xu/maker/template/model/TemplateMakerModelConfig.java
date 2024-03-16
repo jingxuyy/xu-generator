@@ -12,7 +12,7 @@ public class TemplateMakerModelConfig {
 
     @Data
     public static class ModelInfoConfig{
-        private String fileName;
+        private String fieldName;
 
         private String type;
 
@@ -35,5 +35,9 @@ public class TemplateMakerModelConfig {
         private String groupKey;
 
         private String groupName;
+
+        private String type;
+
+        private String description;
     }
 }

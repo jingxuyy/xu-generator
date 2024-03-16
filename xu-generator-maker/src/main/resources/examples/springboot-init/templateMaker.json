@@ -1,24 +1,9 @@
 {
+  "id": 1,
   "meta": {
-    "name": "acm-template-pro-generator",
-    "description": "ACM 示例模板生成器"
+    "name": "springboot-init-generator",
+    "description": "Spring Boot 模板项目生成器"
   },
-  "originalProjectPath": "./../../../xu-generator-demo-projects/springboot-init",
-  "fileConfig": {
-    "files": [
-      {
-        "path": "src/main/java/com/yupi/springbootinit/common"
-      }
-    ]
-  },
-  "modelConfig": {
-    "models": [
-      {
-        "fileName": "className",
-        "type": "String",
-        "defaultValue": true,
-        "replaceText": "BaseResponse"
-      }
-    ]
-  }
+  "originalProjectPath": "./../../../xu-generator-demo-projects/springboot-init"
+
 }

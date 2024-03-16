@@ -37,6 +37,7 @@ public class DynamicFileGenerator {
 
         // 设置模板文件使用的字符集
         configuration.setDefaultEncoding("utf-8");
+        configuration.setOutputEncoding("utf-8");
 
         // 默认数字中间每三位加个逗号，此设置取消这个默认
         configuration.setNumberFormat("0.######");

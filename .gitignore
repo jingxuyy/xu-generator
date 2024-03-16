@@ -57,6 +57,7 @@ acm-template/
 .idea_modules/
 .temp/
 xu-generator-maker/.temp
+.gitignore
 
 # JIRA plugin
 atlassian-ide-plugin.xml

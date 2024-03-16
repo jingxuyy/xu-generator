@@ -14,7 +14,9 @@ public class TemplateMakerFileConfig {
     public static class FileInfoConfig{
         private String path;
 
-        private List<FileFilterConfig> fileConfigList;
+        private String condition;
+
+        private List<FileFilterConfig> filterConfigList;
     }
 
     @Data
